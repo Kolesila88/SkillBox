@@ -75,7 +75,7 @@ public class Elevator {
 
   public void move(int floor) {
 
-    if (floor > minFloor && floor < maxFloor) {
+    if (floor >= minFloor && floor <= maxFloor) {
 
       try {
         moveTheElevatorAcrossFloors(floor);

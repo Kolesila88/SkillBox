@@ -9,26 +9,26 @@ public class TestProduct {
   private static final String TEST_FAILED_MSG = "Test failed!!!";
 
   //Переменные для хранения тестовых данных
-  private static final String testName = "Книга";
-  private static final int testPrice = 1230;
-  private static final String testBarCode = "4600728006542";
+  private static final String TEST_NAME = "Книга";
+  private static final int TEST_PRICE = 1230;
+  private static final String TEST_BAR_CODE = "4600728006542";
 
   public static void main(String[] args) {
 
-    Product testProduct = new Product(testName, testBarCode);
+    Product testProduct = new Product(TEST_NAME, TEST_BAR_CODE);
 
     //Переменные со значениями ожидаемыми в качестве ответа.
-    String expendedName = testName;
-    int expendedPrice = testPrice;
-    String expendedBarCode = testBarCode;
+    String expendedName = TEST_NAME;
+    int expendedPrice = TEST_PRICE;
+    String expendedBarCode = TEST_BAR_CODE;
 
     System.out.println("Product test is started!");
 
     //Вызов методов тестирования
-    setPriceTest(testProduct, testPrice);
-    getNameTest(testProduct, testName);
-    getPriceTest(testProduct, testPrice);
-    getBarCodeTest(testProduct, testBarCode);
+    setPriceTest(testProduct, TEST_PRICE);
+    getNameTest(testProduct, TEST_NAME);
+    getPriceTest(testProduct, TEST_PRICE);
+    getBarCodeTest(testProduct, TEST_BAR_CODE);
 
     System.out.println("Product test finish.");
   }

@@ -9,23 +9,23 @@ public class TestBook {
   private static final String TEST_FAILED_MSG = "Test failed!!!";
 
   //Переменные для хранения тестовых данных
-  private static final String testName = "Чистый код";
-  private static final String testAuthor = "Роберт Мартин";
-  private static final int testPagesCount = 332;
-  private static final String testNumberIsbn = "978-5-496-00487-9";
+  private static final String TEST_NAME = "Чистый код";
+  private static final String TEST_AUTHOR = "Роберт Мартин";
+  private static final int TEST_PAGES_COUNT = 332;
+  private static final String TEST_NUMBER_ISBN = "978-5-496-00487-9";
 
 
   public static void main(String[] args) {
 
     //Инициализация объекта класса book.
-    Book testBook = new Book(testName, testAuthor, testPagesCount, testNumberIsbn);
+    Book testBook = new Book(TEST_NAME, TEST_AUTHOR, TEST_PAGES_COUNT, TEST_NUMBER_ISBN);
 
     System.out.println("Book test is started.");
     //Вызов методов тестирования
-    getNameTest(testBook, testName);
-    getAuthorTest(testBook, testAuthor);
-    getPagesCount(testBook, testPagesCount);
-    getNumberISBNTest(testBook, testNumberIsbn);
+    getNameTest(testBook, TEST_NAME);
+    getAuthorTest(testBook, TEST_AUTHOR);
+    getPagesCount(testBook, TEST_PAGES_COUNT);
+    getNumberISBNTest(testBook, TEST_NUMBER_ISBN);
     System.out.println("Book test finish.");
   }
 

@@ -12,63 +12,63 @@ public class TestCargoDescription {
   private static final String TEST_FAILED_MSG = "Test failed!!!";
 
   //Переменные для хранения тестовых данных объекта класса Dimensions
-  private static final BigDecimal testWidthInCentimeters = new BigDecimal(50);
-  private static final BigDecimal testHeightInCentimeters = new BigDecimal(30);
-  private static final BigDecimal testLengthInCentimeters = new BigDecimal(103);
+  private static final BigDecimal TEST_WIDTH_IN_CENTIMETERS = new BigDecimal(50);
+  private static final BigDecimal TEST_HEIGHT_IN_CENTIMETERS = new BigDecimal(30);
+  private static final BigDecimal TEST_LENGTH_IN_CENTIMETERS = new BigDecimal(103);
 
   //Переменные для хранения тестовых данных объекта CargoDescription
-  private static final Dimensions testDimensions = new Dimensions(testWidthInCentimeters,
-      testHeightInCentimeters,
-      testLengthInCentimeters);
-  private static final double testWeightInKilograms = 70;
-  private static final String testDeliveryAddress = "Some address";
-  private static final boolean testDoNotTorn = false;
-  private static final String testRegistrationNumber = "010203RN302010";
-  private static final boolean testFragile = false;
+  private static final Dimensions TEST_DIMENSIONS = new Dimensions(TEST_WIDTH_IN_CENTIMETERS,
+          TEST_HEIGHT_IN_CENTIMETERS,
+          TEST_LENGTH_IN_CENTIMETERS);
+  private static final double TEST_WEIGHT_IN_KILOGRAMS = 70;
+  private static final String TEST_DELIVERY_ADDRESS = "Some address";
+  private static final boolean TEST_DO_NOT_TORN = false;
+  private static final String TEST_REGISTRATION_NUMBER = "010203RN302010";
+  private static final boolean TEST_FRAGILE = false;
 
   //Переменные для хранения устанавливаемых тестовых данных объекта класса Dimensions
-  private static final BigDecimal alternativeTestWidthInCentimeters = new BigDecimal(10);
-  private static final BigDecimal alternativeTestHeightInCentimeters = new BigDecimal(20);
-  private static final BigDecimal alternativeTestLengthInCentimeters = new BigDecimal(30);
+  private static final BigDecimal ALTERNATIVE_TEST_WIDTH_IN_CENTIMETERS = new BigDecimal(10);
+  private static final BigDecimal ALTERNATIVE_TEST_HEIGHT_IN_CENTIMETERS = new BigDecimal(20);
+  private static final BigDecimal ALTERNATIVE_TEST_LENGTH_IN_CENTIMETERS = new BigDecimal(30);
 
   //Переменные для хранения устанавливаемых тестовых данных объекта CargoDescription
-  private static final Dimensions alternativeTestDimensions = new Dimensions(
-      alternativeTestWidthInCentimeters,
-      alternativeTestHeightInCentimeters, alternativeTestLengthInCentimeters);
-  private static final double alternativeTestWeightInKilograms = 87;
-  private static final String alternativeTestDeliveryAddress = "Some alternative address";
-  private static final boolean alternativeTestDoNotTorn = true;
-  private static final String alternativeTestRegistrationNumber = "090807RN708090";
-  private static final boolean alternativeTestFragile = true;
+  private static final Dimensions ALTERNATIVE_TEST_DIMENSIONS = new Dimensions(
+          ALTERNATIVE_TEST_WIDTH_IN_CENTIMETERS,
+          ALTERNATIVE_TEST_HEIGHT_IN_CENTIMETERS, ALTERNATIVE_TEST_LENGTH_IN_CENTIMETERS);
+  private static final double ALTERNATIVE_TEST_WEIGHT_IN_KILOGRAMS = 87;
+  private static final String ALTERNATIVE_TEST_DELIVERY_ADDRESS = "Some alternative address";
+  private static final boolean ALTERNATIVE_TEST_DO_NOT_TORN = true;
+  private static final String ALTERNATIVE_TEST_REGISTRATION_NUMBER = "090807RN708090";
+  private static final boolean ALTERNATIVE_TEST_FRAGILE = true;
 
   public static void main(String[] args) {
 
     //Инициализируем объект тестирования
-    CargoDescription testCargoDescription = new CargoDescription(testDimensions,
-        testWeightInKilograms, testDeliveryAddress, testDoNotTorn, testRegistrationNumber,
-        testFragile);
+    CargoDescription testCargoDescription = new CargoDescription(TEST_DIMENSIONS,
+            TEST_WEIGHT_IN_KILOGRAMS, TEST_DELIVERY_ADDRESS, TEST_DO_NOT_TORN, TEST_REGISTRATION_NUMBER,
+            TEST_FRAGILE);
 
     //Вызываем тесты get-методов класса CargoDescription
     System.out.println("CargoDescription getters test started.");
-    getDimensionsTest(testCargoDescription, testDimensions);
-    getWeightInKilogramsTest(testCargoDescription, testWeightInKilograms);
-    getDeliveryAddressTest(testCargoDescription, testDeliveryAddress);
-    isDoNotTornTest(testCargoDescription, testDoNotTorn);
-    getRegistrationNumberTest(testCargoDescription, testRegistrationNumber);
-    isFragileTest(testCargoDescription, testFragile);
+    getDimensionsTest(testCargoDescription, TEST_DIMENSIONS);
+    getWeightInKilogramsTest(testCargoDescription, TEST_WEIGHT_IN_KILOGRAMS);
+    getDeliveryAddressTest(testCargoDescription, TEST_DELIVERY_ADDRESS);
+    isDoNotTornTest(testCargoDescription, TEST_DO_NOT_TORN);
+    getRegistrationNumberTest(testCargoDescription, TEST_REGISTRATION_NUMBER);
+    isFragileTest(testCargoDescription, TEST_FRAGILE);
     System.out.println("CargoDescription getters test finish.");
 
     //Вызываем тесты copy-методов класса CargoDescription
     System.out.println("CargoDescription copy and set methods test started.");
-    copyCargoDescriptionAndSetDimensionsTest(testCargoDescription, alternativeTestDimensions);
+    copyCargoDescriptionAndSetDimensionsTest(testCargoDescription, ALTERNATIVE_TEST_DIMENSIONS);
     copyCargoDescriptionAndSetWeightInKilogramsTest(testCargoDescription,
-        alternativeTestWeightInKilograms);
+            ALTERNATIVE_TEST_WEIGHT_IN_KILOGRAMS);
     copyCargoDescriptionAndSetDeliveryAddressTest(testCargoDescription,
-        alternativeTestDeliveryAddress);
-    copyCargoDescriptionAndSetDoNotTornTest(testCargoDescription, alternativeTestDoNotTorn);
+            ALTERNATIVE_TEST_DELIVERY_ADDRESS);
+    copyCargoDescriptionAndSetDoNotTornTest(testCargoDescription, ALTERNATIVE_TEST_DO_NOT_TORN);
     copyCargoDescriptionAndSetRegistrationNumberTest(testCargoDescription,
-        alternativeTestRegistrationNumber);
-    copyCargoDescriptionAndSetFragileTest(testCargoDescription, alternativeTestFragile);
+            ALTERNATIVE_TEST_REGISTRATION_NUMBER);
+    copyCargoDescriptionAndSetFragileTest(testCargoDescription, ALTERNATIVE_TEST_FRAGILE);
     System.out.println("CargoDescription copy and set methods test finish.");
 
 

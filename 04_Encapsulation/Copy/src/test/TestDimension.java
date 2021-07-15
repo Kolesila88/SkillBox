@@ -11,29 +11,29 @@ public class TestDimension {
   private static final String TEST_FAILED_MSG = "Test failed!!!";
 
   //Переменные для хранения тестовых данных
-  private static final BigDecimal testWidthInCentimeters = new BigDecimal(50);
-  private static final BigDecimal testHeightInCentimeters = new BigDecimal(30);
-  private static final BigDecimal testLengthInCentimeters = new BigDecimal(103);
+  private static final BigDecimal TEST_WIDTH_IN_CENTIMETERS = new BigDecimal(50);
+  private static final BigDecimal TEST_HEIGHT_IN_CENTIMETERS = new BigDecimal(30);
+  private static final BigDecimal TEST_LENGTH_IN_CENTIMETERS = new BigDecimal(103);
 
   //Переменные с ожидаемыми ответами
-  private static final BigDecimal expectedVolumeOfCargo = new BigDecimal(154500);
-  private static final BigDecimal expectedWidthInCentimeters = new BigDecimal(50);
-  private static final BigDecimal expectedHeightInCentimeters = new BigDecimal(30);
-  private static final BigDecimal expectedLengthInCentimeters = new BigDecimal(103);
+  private static final BigDecimal EXPECTED_VOLUME_OF_CARGO = new BigDecimal(154500);
+  private static final BigDecimal EXPECTED_WIDTH_IN_CENTIMETERS = new BigDecimal(50);
+  private static final BigDecimal EXPECTED_HEIGHT_IN_CENTIMETERS = new BigDecimal(30);
+  private static final BigDecimal EXPECTED_LENGTH_IN_CENTIMETERS = new BigDecimal(103);
 
   public static void main(String[] args) {
 
     //Инициализация тестируемого объекта
     System.out.println("Dimension tests is started.");
-    Dimensions testDimensions = new Dimensions(testWidthInCentimeters,
-        testHeightInCentimeters,
-        testLengthInCentimeters);
+    Dimensions testDimensions = new Dimensions(TEST_WIDTH_IN_CENTIMETERS,
+            TEST_HEIGHT_IN_CENTIMETERS,
+            TEST_LENGTH_IN_CENTIMETERS);
 
     //Вызов тестов
-    getWidthInCentimetersTest(testDimensions, expectedWidthInCentimeters);
-    getHeightInCentimetersTest(testDimensions, expectedHeightInCentimeters);
-    getLengthInCentimetersTest(testDimensions, expectedLengthInCentimeters);
-    calculateAndGetTheVolumeOfCargoTest(testDimensions, expectedVolumeOfCargo);
+    getWidthInCentimetersTest(testDimensions, EXPECTED_WIDTH_IN_CENTIMETERS);
+    getHeightInCentimetersTest(testDimensions, EXPECTED_HEIGHT_IN_CENTIMETERS);
+    getLengthInCentimetersTest(testDimensions, EXPECTED_LENGTH_IN_CENTIMETERS);
+    calculateAndGetTheVolumeOfCargoTest(testDimensions, EXPECTED_VOLUME_OF_CARGO);
     equalsTest(testDimensions);
     System.out.println("Dimension tests finish.");
   }
@@ -92,7 +92,7 @@ public class TestDimension {
   public static void equalsTest(Dimensions testDimensions) {
 
     Dimensions comparedDimensions = new Dimensions(
-        expectedWidthInCentimeters, expectedHeightInCentimeters, expectedLengthInCentimeters);
+            EXPECTED_WIDTH_IN_CENTIMETERS, EXPECTED_HEIGHT_IN_CENTIMETERS, EXPECTED_LENGTH_IN_CENTIMETERS);
 
     if (testDimensions.equals(comparedDimensions)) {
 
