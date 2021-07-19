@@ -25,7 +25,7 @@ public class FullNameFormatter {
           System.lineSeparator(),
           fullName.substring(fullName.indexOf(' '), fullName.lastIndexOf(' ')).trim(),
           System.lineSeparator(),
-          fullName.substring(fullName.lastIndexOf(' '), fullName.length()).trim());
+          fullName.substring(fullName.lastIndexOf(' ')).trim());
     } else {
 
       resetSpacesCount();
@@ -36,9 +36,9 @@ public class FullNameFormatter {
   private static boolean isName(String fullName) {
 
     char c = fullName.charAt(Value.ZERO.getValue());
-    if (c > Value.CAP_CHAR_MAX_VAL.getValue()
-        || (c < Value.CAP_CHAR_MIN_VAL.getValue()
-        && c != Value.CAP_YO_CHAR_VAL.getValue())) {
+    if (c > Value.UP_CASE_CHAR_MAX_VAL.getValue()
+        || (c < Value.UP_CASE_CHAR_MIN_VAL.getValue()
+        && c != Value.UP_CASE_YO_CHAR_VAL.getValue())) {
 
       return false;
     }
@@ -61,20 +61,9 @@ public class FullNameFormatter {
 
   private static boolean isValidCharacter(String fullName, char c, int i) {
 
-    if ((c < Value.CAP_CHAR_MIN_VAL.getValue() && (c != Value.CAP_YO_CHAR_VAL.getValue()
-        || c != Value.HYPHEN_CHAR_VAL.getValue() || c != Value.SPACE_CHAR_VAL.getValue()))
-        && (c > Value.CHAR_MAX_VAL.getValue() && c != Value.YO_CHAR_VAL.getValue())
-        || ((c == Value.HYPHEN_CHAR_VAL.getValue()
-        && (fullName.charAt(i - Value.ONE.getValue()) < Value.CHAR_MIN_VAL.getValue()
-        || fullName.charAt(i - Value.ONE.getValue()) > Value.CHAR_MAX_VAL.getValue()))
-        || (c == Value.HYPHEN_CHAR_VAL.getValue()
-        && (fullName.charAt(i + Value.ONE.getValue()) < Value.CAP_CHAR_MIN_VAL.getValue()
-        || fullName.charAt(i + Value.ONE.getValue()) > Value.CAP_CHAR_MAX_VAL.getValue())))
-        || (c == Value.SPACE_CHAR_VAL.getValue()
-        && fullName.charAt(i + Value.ONE.getValue()) > Value.CAP_CHAR_MAX_VAL.getValue())
-        || (c == Value.SPACE_CHAR_VAL.getValue()
-        && fullName.charAt(i + Value.ONE.getValue()) < Value.CAP_CHAR_MIN_VAL.getValue()
-        && fullName.charAt(i + Value.ONE.getValue()) != Value.CAP_YO_CHAR_VAL.getValue())) {
+    if (isLessThanUpCaseCharMinValAndGreaterThanLowCaseCharMaxVal(c)
+        || incorrectCharsBeforeOrAfterHyphen(c, fullName, i)
+        || isLowCaseOrErrCharAfterSpace(c, fullName, i)) {
 
       return false;
     } else {
@@ -86,5 +75,49 @@ public class FullNameFormatter {
   private static void resetSpacesCount() {
 
     spacesCount = Value.ZERO.getValue();
+  }
+
+  private static boolean isLessThanUpCaseCharMinValAndGreaterThanLowCaseCharMaxVal(char c) {
+
+   if ((c < Value.UP_CASE_CHAR_MIN_VAL.getValue() && (c != Value.UP_CASE_YO_CHAR_VAL.getValue()
+        || c != Value.HYPHEN_CHAR_VAL.getValue() || c != Value.SPACE_CHAR_VAL.getValue()))
+        && (c > Value.LOW_CASE_CHAR_MAX_VAL.getValue() && c != Value.LOW_CASE_YO_CHAR_VAL.getValue())) {
+
+     return true;
+   } else {
+
+      return false;
+    }
+  }
+
+  private static boolean incorrectCharsBeforeOrAfterHyphen(char c, String fullName, int i) {
+
+    if ((c == Value.HYPHEN_CHAR_VAL.getValue()
+        && (fullName.charAt(i - Value.ONE.getValue()) < Value.LOW_CASE_CHAR_MIN_VAL.getValue()
+        || fullName.charAt(i - Value.ONE.getValue()) > Value.LOW_CASE_CHAR_MAX_VAL.getValue()))
+        || (c == Value.HYPHEN_CHAR_VAL.getValue()
+        && (fullName.charAt(i + Value.ONE.getValue()) < Value.UP_CASE_CHAR_MIN_VAL.getValue()
+        || fullName.charAt(i + Value.ONE.getValue()) > Value.UP_CASE_CHAR_MAX_VAL.getValue()))) {
+
+      return true;
+    } else {
+
+      return false;
+    }
+  }
+
+  private static boolean isLowCaseOrErrCharAfterSpace(char c, String fullName, int i) {
+
+    if ((c == Value.SPACE_CHAR_VAL.getValue()
+        && fullName.charAt(i + Value.ONE.getValue()) > Value.UP_CASE_CHAR_MAX_VAL.getValue())
+        || (c == Value.SPACE_CHAR_VAL.getValue()
+        && fullName.charAt(i + Value.ONE.getValue()) < Value.UP_CASE_CHAR_MIN_VAL.getValue()
+        && fullName.charAt(i + Value.ONE.getValue()) != Value.UP_CASE_YO_CHAR_VAL.getValue())) {
+
+      return true;
+    } else {
+
+      return false;
+    }
   }
 }

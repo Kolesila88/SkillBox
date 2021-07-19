@@ -28,7 +28,8 @@ public class BirthdayCollector {
             .append(DateTimeFormatter
                 .ofPattern(DateFormatPatterns.SKILLBOX_DATE_FORMAT_PATTERN.getPattern())
                 .localizedBy(new Locale(Lang.ENG.getLang()))
-                .format(verifiedDate)).append(System.lineSeparator());
+                .format(verifiedDate))
+            .append(System.lineSeparator());
         verifiedDate = verifiedDate.plusYears(1);
 
       } else {
