@@ -6,7 +6,7 @@ public enum RegEx {
   EIGHT_PATTERN("[8]"),
   SPACE_PATTERN("[\\s]"),
   PHONE_NUMBER_PATTERN
-      ("[+]?[7-8]?[-]?[(]?[0-9]{3}[)]?[-]?[0-9]{3}[-]?[0-9]{2}[-]?[0-9]{2}");
+      ("[+]?[7-8]?[-]?[(]?[\\d]{3}[)]?[-]?[\\d]{3}[-]?[\\d]{2}[-]?[\\d]{2}");
 
   private String regEx;
 
