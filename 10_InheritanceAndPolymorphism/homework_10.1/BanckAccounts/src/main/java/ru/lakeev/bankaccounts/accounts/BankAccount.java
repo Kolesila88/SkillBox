@@ -9,10 +9,14 @@ public class BankAccount {
   private String accountNumber;
   private BigDecimal accAmount;
 
-  public BankAccount() {
+  BankAccount() {
 
     setAccAmount(0.0);
     setAccountNumber(AccountsNumbersSet.generateAndGetAccNum());
+  }
+
+  protected static BankAccount getInstance() {
+    return new BankAccount();
   }
 
   public void put(double amountToPut) {
@@ -33,8 +37,8 @@ public class BankAccount {
     if (amountToTake > 0 && amountToTake <= accAmount.doubleValue()) {
 
       accAmount = accAmount.subtract(BigDecimal.valueOf(amountToTake));
-        System.out.printf(Msg.TAKING_CASH_MSG.getMessage(), amountToTake, accAmount.doubleValue());
-        return true;
+      System.out.printf(Msg.TAKING_CASH_MSG.getMessage(), amountToTake, accAmount.doubleValue());
+      return true;
     } else {
 
       if (amountToTake <= 0) {
@@ -42,7 +46,8 @@ public class BankAccount {
         System.err.printf(Msg.INCORRECT_AMOUNT_MSG.getMessage(), amountToTake);
       } else if (amountToTake > accAmount.doubleValue()) {
 
-        System.err.printf(Msg.INSUFFICIENT_FUNDS.getMessage(), accAmount.doubleValue(), amountToTake);
+        System.err
+            .printf(Msg.INSUFFICIENT_FUNDS.getMessage(), accAmount.doubleValue(), amountToTake);
       } else {
 
         System.err.print(Msg.UNKNOWN_ERR_MSG.getMessage());
@@ -75,11 +80,7 @@ public class BankAccount {
     }
   }
 
-  public String getAccountNumber() {
-    return accountNumber;
-  }
-
-  private void setAccountNumber(String accountNumber) {
+  protected void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
   }
 
@@ -88,8 +89,14 @@ public class BankAccount {
     return accAmount.doubleValue();
   }
 
-  public void setAccAmount(double actualBalance) {
+  protected void setAccAmount(double actualAmount) {
 
-    this.accAmount = new BigDecimal(actualBalance);
+    this.accAmount = new BigDecimal(actualAmount);
+  }
+
+  @Override
+  public String toString() {
+
+    return String.format(Msg.ACC_TO_STRING_MSG.getMessage(), accountNumber, getAccAmount());
   }
 }

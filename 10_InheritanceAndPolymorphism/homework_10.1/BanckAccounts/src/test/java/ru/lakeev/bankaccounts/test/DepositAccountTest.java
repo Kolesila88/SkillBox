@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 import java.util.Calendar;
+import ru.lakeev.bankaccounts.accounts.AccFactory;
 import ru.lakeev.bankaccounts.accounts.BankAccount;
 import ru.lakeev.bankaccounts.accounts.CardAccount;
 import ru.lakeev.bankaccounts.accounts.DepositAccount;
@@ -25,7 +26,7 @@ public class DepositAccountTest {
 
     @BeforeEach
     public void setUp() {
-        depositAccount = new DepositAccount();
+        depositAccount = AccFactory.getAccount(DepositAccount.class.getSimpleName());
     }
 
     @Test
@@ -110,7 +111,8 @@ public class DepositAccountTest {
     @Test
     @DisplayName("Метод send, попытка отправить со счета деньги менее, чем через месяц после зачисления")
     void sendNow() {
-        DepositAccount accountReceiver = new DepositAccount();
+        DepositAccount accountReceiver = (DepositAccount)
+            AccFactory.getAccount(DepositAccount.class.getSimpleName());
         depositAccount.put(100.0);
         depositAccount.send(accountReceiver,50.0);
         assertEquals(100, depositAccount.getAccAmount(), DELTA, notExpectedSumMessage);
@@ -122,7 +124,8 @@ public class DepositAccountTest {
     void sendInMonth() {
         depositAccount.put(2.0);
         rollBackTime(0, 1, 1);
-        DepositAccount accountReceiver = new DepositAccount();
+        DepositAccount accountReceiver = (DepositAccount)
+            AccFactory.getAccount(DepositAccount.class.getSimpleName());
         depositAccount.send( accountReceiver, 1.0);
         assertEquals(1.0, depositAccount.getAccAmount(), DELTA, notExpectedSumMessage);
     }

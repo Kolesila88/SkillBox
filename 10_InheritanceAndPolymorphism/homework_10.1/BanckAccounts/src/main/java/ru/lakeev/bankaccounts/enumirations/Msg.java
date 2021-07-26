@@ -7,7 +7,8 @@ public enum Msg {
   COMMISSION_MSG("\tКомиссия: %.2f руб.%n"),
   INSUFFICIENT_FUNDS("Недостаточно средств%n\tБаланс: %.2f руб.%n\tСумма снятия: %.2f руб.%n"),
   INCORRECT_AMOUNT_MSG("Операция не возможна.\t%nСумма операции: %.2f руб."),
-  REPLENISHMENT_MSG("Пополнение: %.2f руб.%n\tБаланс: %.2f руб.%n");
+  REPLENISHMENT_MSG("Пополнение: %.2f руб.%n\tБаланс: %.2f руб.%n"),
+  ACC_TO_STRING_MSG("Аккаунт № %s.Баланс: %2.f.%n");
 
   private String message;
 

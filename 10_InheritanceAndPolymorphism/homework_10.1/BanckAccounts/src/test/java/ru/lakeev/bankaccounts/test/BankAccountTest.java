@@ -3,6 +3,7 @@ package ru.lakeev.bankaccounts.test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.lakeev.bankaccounts.accounts.AccFactory;
 import ru.lakeev.bankaccounts.accounts.BankAccount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +18,7 @@ public class BankAccountTest {
 
     @BeforeEach
     public void setUp() {
-        bankAccount = new BankAccount();
+        bankAccount = AccFactory.getAccount(BankAccount.class.getSimpleName());
     }
 
     @Test
@@ -53,7 +54,7 @@ public class BankAccountTest {
     @Test
     @DisplayName("Метод send")
     void send() {
-        BankAccount accountReceiver = new BankAccount();
+        BankAccount accountReceiver = AccFactory.getAccount(BankAccount.class.getSimpleName());
         bankAccount.put(1000);
         bankAccount.send(accountReceiver, 500);
         assertEquals(500, bankAccount.getAccAmount(), DELTA, notExpectedSumMessage);
@@ -62,7 +63,7 @@ public class BankAccountTest {
     @Test
     @DisplayName("Метод send, попытка отправить на другой счет денег больше, чем на счете имеется")
     void sendToMuchMoney() {
-        BankAccount accountReceiver = new BankAccount();
+        BankAccount accountReceiver = AccFactory.getAccount(BankAccount.class.getSimpleName());
         bankAccount.put(10);
         bankAccount.send(accountReceiver, 500);
         assertEquals(10, bankAccount.getAccAmount(), DELTA, notExpectedSumMessage);

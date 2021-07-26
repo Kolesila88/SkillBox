@@ -1,16 +1,20 @@
 package ru.lakeev.bankaccounts;
 
+import ru.lakeev.bankaccounts.accounts.AccFactory;
 import ru.lakeev.bankaccounts.accounts.BankAccount;
 import ru.lakeev.bankaccounts.accounts.CardAccount;
+import ru.lakeev.bankaccounts.accounts.DepositAccount;
 
 public class Loader {
 
   public static void main(String[] args) {
 
-    BankAccount bankAccount = new BankAccount();
-    CardAccount cardAccount = new CardAccount();
-    System.out.println(bankAccount.getAccountNumber());
-    System.out.println(cardAccount.getAccountNumber());
+    BankAccount bankAccount = AccFactory.getAccount(BankAccount.class.getSimpleName());
+    CardAccount cardAccount = (CardAccount) AccFactory
+        .getAccount(CardAccount.class.getSimpleName());
+    DepositAccount depositAccount = (DepositAccount) AccFactory
+        .getAccount(DepositAccount.class.getSimpleName());
+
 
     bankAccount.put(5000.0);
     cardAccount.put(10000);

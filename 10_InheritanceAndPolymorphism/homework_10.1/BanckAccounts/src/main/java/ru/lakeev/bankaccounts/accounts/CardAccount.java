@@ -2,9 +2,21 @@ package ru.lakeev.bankaccounts.accounts;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import ru.lakeev.bankaccounts.accountsnumbersset.AccountsNumbersSet;
 import ru.lakeev.bankaccounts.enumirations.Msg;
 
 public class CardAccount extends BankAccount {
+
+
+  private CardAccount() {
+
+    setAccAmount(0.0);
+    setAccountNumber(AccountsNumbersSet.generateAndGetAccNum());
+  }
+
+  protected static CardAccount getInstance() {
+    return new CardAccount();
+  }
 
   public boolean take(double amountToTake) {
 

@@ -4,12 +4,23 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import ru.lakeev.bankaccounts.accountsnumbersset.AccountsNumbersSet;
 import ru.lakeev.bankaccounts.enumirations.Msg;
 import ru.lakeev.bankaccounts.enumirations.Pttrn;
 
 public class DepositAccount extends BankAccount {
 
   private LocalDate lastIncome;
+
+  private DepositAccount() {
+
+    setAccAmount(0.0);
+    setAccountNumber(AccountsNumbersSet.generateAndGetAccNum());
+  }
+
+  protected static DepositAccount getInstance() {
+    return new DepositAccount();
+  }
 
   public void put(double amountToPut) {
 
