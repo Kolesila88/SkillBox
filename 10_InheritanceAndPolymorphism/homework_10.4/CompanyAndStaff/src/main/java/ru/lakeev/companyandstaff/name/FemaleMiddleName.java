@@ -1,0 +1,116 @@
+package ru.lakeev.companyandstaff.name;
+
+public enum FemaleMiddleName {
+  FEM_MID_NAME_0("Артёмовна"),
+  FEM_MID_NAME_1("Артемиевна"),
+  FEM_MID_NAME_2("Александровна"),
+  FEM_MID_NAME_3("Максимовна"),
+  FEM_MID_NAME_4("Данииловна"),
+  FEM_MID_NAME_5("Даниловна"),
+  FEM_MID_NAME_6("Дмитриевна"),
+  FEM_MID_NAME_7("Димитриевна"),
+  FEM_MID_NAME_8("Ивановна"),
+  FEM_MID_NAME_9("Кирилловна"),
+  FEM_MID_NAME_10("Никитична"),
+  FEM_MID_NAME_11("Михайловна"),
+  FEM_MID_NAME_12("Егоровна"),
+  FEM_MID_NAME_13("Егориевна"),
+  FEM_MID_NAME_14("Матвеевна"),
+  FEM_MID_NAME_15("Андреевна"),
+  FEM_MID_NAME_16("Ильична"),
+  FEM_MID_NAME_17("Алексеевна"),
+  FEM_MID_NAME_18("Романовна"),
+  FEM_MID_NAME_19("Сергеевна"),
+  FEM_MID_NAME_20("Владиславовна"),
+  FEM_MID_NAME_21("Ярославовна"),
+  FEM_MID_NAME_22("Тимофеевна"),
+  FEM_MID_NAME_23("Арсениевна"),
+  FEM_MID_NAME_24("Арсентиевна"),
+  FEM_MID_NAME_25("Денисовна"),
+  FEM_MID_NAME_26("Владимировна"),
+  FEM_MID_NAME_27("Павловна"),
+  FEM_MID_NAME_28("Глебовна"),
+  FEM_MID_NAME_29("Константиновна"),
+  FEM_MID_NAME_30("Богдановна"),
+  FEM_MID_NAME_31("Евгениевна"),
+  FEM_MID_NAME_32("Николаевна"),
+  FEM_MID_NAME_33("Степановна"),
+  FEM_MID_NAME_34("Захаровна"),
+  FEM_MID_NAME_35("Тимуровна"),
+  FEM_MID_NAME_36("Марковна"),
+  FEM_MID_NAME_37("Семёновна"),
+  FEM_MID_NAME_38("Фёдоровна"),
+  FEM_MID_NAME_39("Георгиевна"),
+  FEM_MID_NAME_40("Львовна"),
+  FEM_MID_NAME_41("Антоновна"),
+  FEM_MID_NAME_42("Антониевна"),
+  FEM_MID_NAME_43("Вадимовна"),
+  FEM_MID_NAME_44("Игоревна"),
+  FEM_MID_NAME_45("Руслановна"),
+  FEM_MID_NAME_46("Вячеславовна"),
+  FEM_MID_NAME_47("Григорьевна"),
+  FEM_MID_NAME_48("Макаровна"),
+  FEM_MID_NAME_49("Артуровна"),
+  FEM_MID_NAME_50("Викторовна"),
+  FEM_MID_NAME_51("Станиславовна"),
+  FEM_MID_NAME_52("Савелиевна"),
+  FEM_MID_NAME_53("Олеговна"),
+  FEM_MID_NAME_54("Давидовна"),
+  FEM_MID_NAME_55("Давыдовна"),
+  FEM_MID_NAME_56("Леонидовна"),
+  FEM_MID_NAME_57("Пётровна"),
+  FEM_MID_NAME_58("Юриевна"),
+  FEM_MID_NAME_59("Виталиевна"),
+  FEM_MID_NAME_60("Мироновна"),
+  FEM_MID_NAME_61("Василиевна"),
+  FEM_MID_NAME_62("Всеволодовна"),
+  FEM_MID_NAME_63("Елисеевна"),
+  FEM_MID_NAME_64("Назаровна"),
+  FEM_MID_NAME_65("Родионовна"),
+  FEM_MID_NAME_66("Маратовна"),
+  FEM_MID_NAME_67("Платоновна"),
+  FEM_MID_NAME_68("Германовна"),
+  FEM_MID_NAME_69("Игнатовна"),
+  FEM_MID_NAME_70("Игнатиевна"),
+  FEM_MID_NAME_71("Святославовна"),
+  FEM_MID_NAME_72("Анатолиевна"),
+  FEM_MID_NAME_73("Тихоновна"),
+  FEM_MID_NAME_74("Валерьевна"),
+  FEM_MID_NAME_75("Мирославовна"),
+  FEM_MID_NAME_76("Ростиславовна"),
+  FEM_MID_NAME_77("Борисовна"),
+  FEM_MID_NAME_78("Филипповна"),
+  FEM_MID_NAME_79("Демьяновна"),
+  FEM_MID_NAME_80("Климовна"),
+  FEM_MID_NAME_81("Климентовна"),
+  FEM_MID_NAME_82("Гордеевна"),
+  FEM_MID_NAME_83("Валентиновна"),
+  FEM_MID_NAME_84("Геннадиевна"),
+  FEM_MID_NAME_85("Демидовна"),
+  FEM_MID_NAME_86("Диомидовна"),
+  FEM_MID_NAME_87("Прохоровна"),
+  FEM_MID_NAME_88("Серафимовна"),
+  FEM_MID_NAME_89("Саввична"),
+  FEM_MID_NAME_90("Яромировна"),
+  FEM_MID_NAME_91("Аркадиевна"),
+  FEM_MID_NAME_92("Архиповна"),
+  FEM_MID_NAME_93("Тарасовна"),
+  FEM_MID_NAME_94("Трофимовна");
+
+  private String midName;
+
+  FemaleMiddleName(String midName) {
+
+    this.midName = midName;
+  }
+
+  public static String getFemaleMiddleName() {
+
+    return values()[(int) (Math.random() * values().length)].getMidName();
+  }
+
+  public String getMidName() {
+
+    return midName;
+  }
+}

@@ -1,0 +1,116 @@
+package ru.lakeev.companyandstaff.name;
+
+public enum MaleMiddleName {
+  MALE_MID_NAME_0("Артёмович"),
+  MALE_MID_NAME_1("Артемьевич"),
+  MALE_MID_NAME_2("Александрович"),
+  MALE_MID_NAME_3("Максимович"),
+  MALE_MID_NAME_4("Даниилович"),
+  MALE_MID_NAME_5("Данилович"),
+  MALE_MID_NAME_6("Дмитрьевич"),
+  MALE_MID_NAME_7("Димитрьевич"),
+  MALE_MID_NAME_8("Иванович"),
+  MALE_MID_NAME_9("Кириллович"),
+  MALE_MID_NAME_10("Никитич"),
+  MALE_MID_NAME_11("Михайлович"),
+  MALE_MID_NAME_12("Егорович"),
+  MALE_MID_NAME_13("Егорьевич"),
+  MALE_MID_NAME_14("Матвеевич"),
+  MALE_MID_NAME_15("Андреевич"),
+  MALE_MID_NAME_16("Ильич"),
+  MALE_MID_NAME_17("Алексеевич"),
+  MALE_MID_NAME_18("Романович"),
+  MALE_MID_NAME_19("Сергеевич"),
+  MALE_MID_NAME_20("Владиславович"),
+  MALE_MID_NAME_21("Ярославович"),
+  MALE_MID_NAME_22("Тимофеевич"),
+  MALE_MID_NAME_23("Арсеньевич"),
+  MALE_MID_NAME_24("Арсентьевич"),
+  MALE_MID_NAME_25("Денисович"),
+  MALE_MID_NAME_26("Владимирович"),
+  MALE_MID_NAME_27("Павлович"),
+  MALE_MID_NAME_28("Глебович"),
+  MALE_MID_NAME_29("Константинович"),
+  MALE_MID_NAME_30("Богданович"),
+  MALE_MID_NAME_31("Евгеньевич"),
+  MALE_MID_NAME_32("Николаевич"),
+  MALE_MID_NAME_33("Степанович"),
+  MALE_MID_NAME_34("Захарович"),
+  MALE_MID_NAME_35("Тимурович"),
+  MALE_MID_NAME_36("Маркович"),
+  MALE_MID_NAME_37("Семёнович"),
+  MALE_MID_NAME_38("Фёдорович"),
+  MALE_MID_NAME_39("Георгьевич"),
+  MALE_MID_NAME_40("Львович"),
+  MALE_MID_NAME_41("Антонович"),
+  MALE_MID_NAME_42("Антоньевич"),
+  MALE_MID_NAME_43("Вадимович"),
+  MALE_MID_NAME_44("Игоревич"),
+  MALE_MID_NAME_45("Русланович"),
+  MALE_MID_NAME_46("Вячеславович"),
+  MALE_MID_NAME_47("Григорьевич"),
+  MALE_MID_NAME_48("Макарович"),
+  MALE_MID_NAME_49("Артурович"),
+  MALE_MID_NAME_50("Викторович"),
+  MALE_MID_NAME_51("Станиславович"),
+  MALE_MID_NAME_52("Савельевич"),
+  MALE_MID_NAME_53("Олегович"),
+  MALE_MID_NAME_54("Давидович"),
+  MALE_MID_NAME_55("Давыдович"),
+  MALE_MID_NAME_56("Леонидович"),
+  MALE_MID_NAME_57("Пётрович"),
+  MALE_MID_NAME_58("Юрьевич"),
+  MALE_MID_NAME_59("Витальевич"),
+  MALE_MID_NAME_60("Миронович"),
+  MALE_MID_NAME_61("Васильевич"),
+  MALE_MID_NAME_62("Всеволодович"),
+  MALE_MID_NAME_63("Елисеевич"),
+  MALE_MID_NAME_64("Назарович"),
+  MALE_MID_NAME_65("Родионович"),
+  MALE_MID_NAME_66("Маратович"),
+  MALE_MID_NAME_67("Платонович"),
+  MALE_MID_NAME_68("Германович"),
+  MALE_MID_NAME_69("Игнатович"),
+  MALE_MID_NAME_70("Игнатьевич"),
+  MALE_MID_NAME_71("Святославович"),
+  MALE_MID_NAME_72("Анатольевич"),
+  MALE_MID_NAME_73("Тихонович"),
+  MALE_MID_NAME_74("Валерьевич"),
+  MALE_MID_NAME_75("Мирославович"),
+  MALE_MID_NAME_76("Ростиславович"),
+  MALE_MID_NAME_77("Борисович"),
+  MALE_MID_NAME_78("Филиппович"),
+  MALE_MID_NAME_79("Демьянович"),
+  MALE_MID_NAME_80("Климович"),
+  MALE_MID_NAME_81("Климентович"),
+  MALE_MID_NAME_82("Гордеевич"),
+  MALE_MID_NAME_83("Валентинович"),
+  MALE_MID_NAME_84("Геннадьевич"),
+  MALE_MID_NAME_85("Демидович"),
+  MALE_MID_NAME_86("Диомидович"),
+  MALE_MID_NAME_87("Прохорович"),
+  MALE_MID_NAME_88("Серафимович"),
+  MALE_MID_NAME_89("Саввич"),
+  MALE_MID_NAME_90("Яромирович"),
+  MALE_MID_NAME_91("Аркадьевич"),
+  MALE_MID_NAME_92("Архипович"),
+  MALE_MID_NAME_93("Тарасович"),
+  MALE_MID_NAME_94("Трофимович");
+
+  private String midName;
+
+  MaleMiddleName(String midName) {
+
+    this.midName = midName;
+  }
+
+  public String getMidName() {
+
+    return midName;
+  }
+
+  public static String getMaleMiddleName() {
+
+    return values()[(int) (Math.random() * values().length)].getMidName();
+  }
+}
