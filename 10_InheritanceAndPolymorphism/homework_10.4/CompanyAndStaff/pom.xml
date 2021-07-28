@@ -16,9 +16,6 @@
     <checkstyle-maven-plugin.version>3.1.1</checkstyle-maven-plugin.version>
     <junit.platform.version>5.3.2</junit.platform.version>
     <puppycrawl.version>8.34</puppycrawl.version>
-    <checkstyle.config.remote>
-      https://raw.githubusercontent.com/skillbox-java/checkstyle/master/checkstyle_M4.xml
-    </checkstyle.config.remote>
   </properties>
 
   <build>
@@ -28,7 +25,6 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${checkstyle-maven-plugin.version}</version>
         <configuration>
-          <!-- Use last available configuration -->
           <configLocation>checkstyle.xml</configLocation>
           <configLocation>${checkstyle.config.remote}</configLocation>
           <encoding>UTF-8</encoding>
