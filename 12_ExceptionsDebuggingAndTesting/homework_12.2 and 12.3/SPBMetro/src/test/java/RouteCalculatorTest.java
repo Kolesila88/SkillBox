@@ -11,9 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
 @DisplayName("Тестирование класса java.RouteCalculator.java")
-public class RouteCalculatorTest{
+public class RouteCalculatorTest {
 
   private Random random;
   private StationIndex testSubway;
@@ -30,7 +29,8 @@ public class RouteCalculatorTest{
     String[] line1 = {"Первая станция", "Вторая станция", "Третья станция", "Четвертая станция",
         "Пятая станция", "Шестая станция", "Седьмая станция"};
     String[] line2 = {"Восьмая станция", "Девятая станция", "Десятая станция",
-        "Одиннацатая станция", "Двенадцатая станция", "Тринадцатая станция", "Четырнадцатая станция"};
+        "Одиннацатая станция", "Двенадцатая станция", "Тринадцатая станция",
+        "Четырнадцатая станция"};
     String[] line3 = {"Пятнадцатая станция", "Шестнадцатая станция", "Семнадцатая станция",
         "Восемнадцатая станция", "Девятнадцатая станция", "Двадцатая станция"};
     String[] line4 = {"Двадцать первая станция", "Двадцать вторая станция",
@@ -39,7 +39,7 @@ public class RouteCalculatorTest{
     testFirstLine = new Line(1, "Первая");
     testSecondLine = new Line(2, "Вторая");
     testThirdLine = new Line(3, "Третья");
-    testFourthLine = new Line(4,"Четвертая");
+    testFourthLine = new Line(4, "Четвертая");
 
     for (String stationName : line1) {
       testFirstLine.addStation(new Station(stationName, testFirstLine));
