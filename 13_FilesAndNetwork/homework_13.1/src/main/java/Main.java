@@ -15,7 +15,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     Logger logger = LogManager.getRootLogger();
     while (true) {
-      logger.info(CONSOLE, "Введите путь до папки.");
+      logger.info(CONSOLE, "Введите абсолютный путь до папки.");
       String path = scanner.nextLine();
       if (path.matches("EXIT")) {
         break;

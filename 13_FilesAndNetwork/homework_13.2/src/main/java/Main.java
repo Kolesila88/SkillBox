@@ -18,13 +18,13 @@ public class Main {
     while (true) {
 
       FileUtils.getLogger().info(CONSOLE,
-          "Specify the path to the copied file, or enter \"EXIT\" to exit from program.");
+          "Specify the absolute path to the copied file, or enter \"EXIT\" to exit from program.");
       sourceDirectory = scanner.nextLine().trim();
       if (sourceDirectory.matches("EXIT")) {
         break;
       }
       FileUtils.getLogger()
-          .info(CONSOLE, "Specify the path to the location where the copied file is saved.");
+          .info(CONSOLE, "Specify the absolute path to the location where the copied file is saved.");
       destinationDirectory = scanner.nextLine().trim();
       try {
         if (isCorrectPathsSpecified(sourceDirectory, destinationDirectory)) {

@@ -52,7 +52,7 @@ public class FileUtils {
   private static Path getPath(String stringPath) throws IOException, FileFormatException {
 
     Path pathToDir = Paths.get(stringPath);
-    if (!stringPath.matches("[A-Z][:]\\\\.+")) {
+    if (!stringPath.matches("[A-Z][:][\\\\|/].+")) {
 
       throw new IOException(
           String.format(MsgTemplates.I_O_EXP_MSG_TEMPLATE.getPattern(), stringPath));
