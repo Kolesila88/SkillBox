@@ -18,7 +18,7 @@ public class Main {
       while (true) {
         AppLogger.logMessage(ConsoleMsgTemplates.SPECIFY_PATH_TO_SITE.getTemplate());
         String pathToTheProcessedSite = "https://".concat(scanner.nextLine().trim());
-        if (pathToTheProcessedSite.equals("EXIT")) {
+        if (pathToTheProcessedSite.split("//")[1].equals("EXIT")) {
           break;
         } else if (!Validator.thisIsASiteLink(pathToTheProcessedSite)) {
           throw new IOException(String
