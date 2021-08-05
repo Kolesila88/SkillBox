@@ -1,0 +1,51 @@
+
+The purpose of the assignment:
+Learn to work with the Thread class.
+
+What should be done:
+Write an image reduction program based on the ImageResizer project. It should run as many threads as there are cores in your computer's processor.
+
+Criteria for evaluation:
+"Pass" - when the program starts, the size of the images is reduced and they are copied to the specified folder.
+"Failed" - the task has not been completed.
+
+Additional task *
+The purpose of the assignment:
+Using the Imgscalr library, reduce the image without losing quality.
+
+What should be done:
+According to the instructions, include support for the maven builder in your project.
+Embed the Imgscalr library into the project.
+Use the method to reduce the image.
+public static BufferedImage resize (BufferedImage src, int targetWidth, int targetHeight, BufferedImageOp ... ops)
+
+Criteria for evaluation:
+"Pass" - resizing of images is performed using the Imgscalr library.
+"Failed" - the task has not been completed.
+
+===============================================================================================================================================================
+
+Цель задания:
+Научиться работать с классом Thread.
+
+Что нужно сделать:
+Напишите программу уменьшения изображений на основе проекта ImageResizer. 
+Она должна запускать число потоков, равное количеству ядер процессора вашего компьютера.
+
+Критерии оценки:
+«Зачёт» — при запуске программы уменьшается размер изображений и они копируются в указанную папку.
+«Незачёт» — задание не выполнено.
+
+Дополнительное задание*
+Цель задания:
+Используя библиотеку Imgscalr, уменьшать изображение без потери качества. 
+
+Что нужно сделать:
+Согласно инструкции включить поддержку сборщика maven в свой проект.
+Внедрить библиотеку Imgscalr в проект.
+Использовать метод для уменьшения изображения.
+public static BufferedImage resize(BufferedImage src, int targetWidth, int targetHeight, BufferedImageOp... ops)
+
+Критерии оценки:
+«Зачёт» — изменение размера изображений производится с использованием библиотеки Imgscalr.
+«Незачёт» — задание не выполнено.
