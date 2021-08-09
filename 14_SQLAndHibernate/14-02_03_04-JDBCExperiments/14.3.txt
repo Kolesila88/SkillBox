@@ -1,0 +1,147 @@
+
+The purpose of the assignment:
+Learn how to create @Entity classes with database relationships.
+
+What should be done:
+Create @Entity classes for all database tables and relationships between them for the entire Skillbox database.
+
+Recommendations:
+
+	-How to choose connections?
+Examine each table and find the connections between them. 
+For example, the Subscriptions table has a field with the student ID (student_id). 
+In the class related to Subscriptions, you can make the @ManyToOne link to the student, and the student will have @OneToMany. 
+That is, one student can have many subscriptions, and each subscription can only have one student. 
+Similarly, see where and what kind of connections can be written between the classes.
+
+	-What if there is no id field in the table?
+The Subcriptions table does not have a separate column with the usual record ID. 
+The identifier here is the student_id and course_id pair. 
+This means that the student_id and course_id pair is unique for each record.
+The link between student_id and course_id is called the Composite key.
+One of the options for creating a composite key is to write a separate class in which the fields will contain the values ​​of the fields included in the composite key.
+
+Using the Subscription class as an example:
+
+@Embeddable
+public class Key implements Serializable {
+
+@Column(name = "student_id")
+    private int studentId;
+
+@Column(name = "course_id")
+    private int courseId;
+
+ //setters, getters, equals(), hashcode()
+
+}
+
+A composite key class must:
+-be public;
+-have a public default constructor;
+-implement your own equals (), hashCode (), public getters and setters;
+-implement Serializable.
+
+Used class-key in @Entity as follows:
+
+@Entity
+@Table(name = "Subscriptions")
+public class Subscription {
+
+  @EmbeddedId
+  private Key id;
+
+  @Column(name = "student_id", insertable = false, updatable = false)
+  private int studentId;
+
+  @Column(name = "course_id", insertable = false, updatable = false)
+  private int courseId;
+
+...
+
+The @EmbeddedId annotation says that this parameter is a composite key.
+If the key fields are used in the main @Entity class, 
+then it is necessary to prohibit the use of fields for inserting and updating data with additional parameters in the @Column annotation.
+
+To get an object from the database using a composite key, 
+you need to pass an instance of the composite key to the get () method of the Session object, for example:
+	Subscription subscription = session.get(Subscription.class, new PK(studentId, courseId));
+similarly for creating a new record.
+
+Criteria for evaluation:
+"Test" - written all the classes for the database tables, indicating the relationships between the tables.
+"Failed" - the task has not been completed.
+
+==================================================================================================================================================================
+
+Цель задания:
+Научиться создавать классы @Entity со связями для работы с базой данных.
+
+Что нужно сделать:
+Создайте классы @Entity для всех таблиц базы данных и связи между ними для всей базы данных Skillbox.
+
+Рекомендации:
+
+	-Как выбрать связи? 
+Изучите каждую таблицу и найдите связи между ними. 
+Например, в таблице Subscriptions есть поле с идентификатором студента (student_id). 
+В классе, связанном с Subscriptions, можно сделать связь @ManyToOne со студентом, а у студента будет @OneToMany. 
+То есть у одного студента может быть много подписок, а у каждой подписки может быть только один студент. 
+Аналогично посмотрите, где и какие связи можно прописать между классами.
+
+	-Что делать если нет поля id в таблице?
+В таблице Subcriptions нет отдельной колонки с привычным идентификатором записи. 
+В роли идентификатора здесь выступает пара student_id и course_id.  
+Это значит, что пара значений student_id и course_id уникальна для каждой записи.
+Связка student_id и course_id называется «составной ключ» (Composite key). 
+Один из вариантов создания составного ключа — написать отдельный класс, в котором поля будут содержать значения полей, входящих в составной ключ.
+
+На примере класса Subscription:
+
+@Embeddable
+public class Key implements Serializable {
+
+@Column(name = "student_id")
+    private int studentId;
+
+@Column(name = "course_id")
+    private int courseId;
+
+ //setters, getters, equals(), hashcode()
+
+}
+
+Класс составного ключа обязан:
+-быть public;
+-иметь публичный конструктор по умолчанию;
+-реализовывать собственные equals(), hashCode(), публичные геттеры и сеттеры;
+-имплементировать Serializable.
+
+ Используется класс-ключ в @Entity следующим образом:
+
+@Entity
+@Table(name = "Subscriptions")
+public class Subscription {
+
+  @EmbeddedId
+  private Key id;
+
+  @Column(name = "student_id", insertable = false, updatable = false)
+  private int studentId;
+
+  @Column(name = "course_id", insertable = false, updatable = false)
+  private int courseId;
+
+...
+ 
+Аннотация @EmbeddedId говорит, что данный параметр является составным ключом.
+Если поля ключа использовать и в основном классе @Entity, 
+то необходимо запретить использовать поля для вставки и обновления данных дополнительными параметрами в аннотации @Column.
+
+Для получения объекта из базы данных по составному ключу необходимо в метод get() объекта Session передавать экземпляр составного ключа, например:
+	Subscription subscription = session.get(Subscription.class, new PK(studentId, courseId));
+аналогично и для создания новой записи.
+
+Критерии оценки:
+«Зачёт» — написаны все классы для таблиц базы данных с указанием связей между таблицами.
+«Незачёт» — задание не выполнено.

@@ -1,0 +1,171 @@
+
+The purpose of the assignment:
+Use Hibernate to create a new table in the database and populate it.
+
+There is a PurchaseList table in the Skillbox database. It lists the names of the students and the titles of the courses they bought.
+
+What should be done:
+Write the code for a new LinkedPurchaseList table that populates based on the data in the PurchaseList table.
+
+The table should contain the following fields:
+	-student_id
+	-course_id
+The table does not have a separate column with the usual record identifier. 
+The identifier here is the student_id and course_id pair. 
+This means that the student_id and course_id pair is unique for each record.
+
+The link between student_id and course_id is called the Composite key.
+One of the options for creating a composite key is to write a separate class in which the fields will contain the values ​​of the fields included in the composite key.
+
+Using the Subscription class as an example:
+
+@Embeddable
+
+public class Key implements Serializable {
+
+@Column(name = "student_id")
+
+    private int studentId;
+
+@Column(name = "course_id")
+
+    private int courseId;
+
+ //setters, getters, equals(), hashcode()
+
+}
+
+A composite key class must:
+
+-be public;
+-have a public default constructor;
+-implement your own equals (), hashCode (), public getters and setters;
+-implement Serializable.
+
+Used class-key in @Entity as follows:
+
+@Entity
+
+@Table(name = "Subscriptions")
+
+public class Subscription {
+
+  @EmbeddedId
+
+  private Key id;
+
+  @Column(name = "student_id", insertable = false, updatable = false)
+
+  private int studentId;
+
+  @Column(name = "course_id", insertable = false, updatable = false)
+
+  private int courseId;
+
+...
+
+The @EmbeddedId annotation says that this parameter is a composite key.
+If the key fields are used in the main @Entity class, 
+then it is necessary to prohibit the use of fields for inserting and updating data with additional parameters in the @Column annotation.
+To get an object from the database using a composite key, 
+you need to pass an instance of the composite key to the get () method of the Session object, for example:
+	Subscription subscription = session.get (Subscription.class, new PK (studentId, courseId));
+similarly for creating a new record.
+
+Recommendations:
+Change the hbm2ddl.auto parameter to update in hibernate.cfg so that the database structure is updated based on the written code of the @Entity classes.
+List of possible options for hbm2ddl.auto:
+	-validate - check the schema, do not make changes to the database;
+	-update - update the schema;
+	-create - creates a schema, destroying previous data;
+	-create-drop - drop the schema when the SessionFactory is closed explicitly - usually when the application is stopped.
+
+Criteria for evaluation:
+"Pass" - a LinkedPurchaseList table has been created in the database and populated based on the PurchaseList.
+"Failed" - the task has not been completed.
+
+===================================================================================================================================================================
+
+Цель задания:
+С помощью Hibernate создайте новую таблицу в базе данных и заполните её.
+
+В базе Skillbox есть таблица PurchaseList. В ней указаны имена студентов и названия курсов, которые они купили.
+
+Что нужно сделать:
+Напишите код новой таблицы LinkedPurchaseList, которая заполняется на основании данных таблицы PurchaseList.
+
+Таблица должна содержать следующие поля:
+	-student_id
+	-course_id
+В таблице нет отдельной колонки с привычным идентификатором записи. В роли идентификатора здесь выступает пара student_id и course_id.  
+Это значит, что пара значений student_id и course_id уникальна для каждой записи.
+
+Связка student_id и course_id называется «составной ключ» (Composite key). 
+Один из вариантов создания составного ключа — написать отдельный класс, в котором поля будут содержать значения полей, входящих в составной ключ.
+
+На примере класса Subscription:
+
+@Embeddable
+
+public class Key implements Serializable {
+
+@Column(name = "student_id")
+
+    private int studentId;
+
+@Column(name = "course_id")
+
+    private int courseId;
+
+ //setters, getters, equals(), hashcode()
+
+}
+
+Класс составного ключа обязан:
+-быть public;
+-иметь публичный конструктор по умолчанию;
+-реализовывать собственные equals(), hashCode(), публичные геттеры и сеттеры;
+-имплементировать Serializable.
+
+ Используется класс-ключ в @Entity следующим образом:
+
+@Entity
+
+@Table(name = "Subscriptions")
+
+public class Subscription {
+
+  @EmbeddedId
+
+  private Key id;
+
+  @Column(name = "student_id", insertable = false, updatable = false)
+
+  private int studentId;
+
+  @Column(name = "course_id", insertable = false, updatable = false)
+
+  private int courseId;
+
+...
+
+Аннотация @EmbeddedId говорит, что данный параметр является составным ключом.
+
+Если поля ключа использовать и в основном классе @Entity, 
+то необходимо запретить использовать поля для вставки и обновления данных дополнительными параметрами в аннотации @Column.
+
+Для получения объекта из базы данных по составному ключу необходимо в метод get() объекта Session передавать экземпляр составного ключа, например:
+	Subscription subscription = session.get(Subscription.class, new PK(studentId, courseId));
+аналогично и для создания новой записи.
+
+Рекомендации:
+Измените параметр hbm2ddl.auto на update в hibernate.cfg, чтобы структура базы данных обновлялась в зависимости от написанного кода классов @Entity.
+Список возможных вариантов hbm2ddl.auto:
+	-validate — проверить схему, не вносить изменения в базу данных;
+	-update — обновить схему;
+	-create — создаёт схему, уничтожая предыдущие данные;
+	-create-drop — отказаться от схемы, когда SessionFactory закрывается явно — обычно, когда приложение остановлено.
+
+Критерии оценки:
+«Зачёт» — в базе данных создана таблица LinkedPurchaseList и заполнена на основе PurchaseList.
+«Незачёт» — задание не выполнено.

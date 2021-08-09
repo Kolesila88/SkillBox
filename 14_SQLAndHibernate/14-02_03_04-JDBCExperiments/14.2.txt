@@ -1,0 +1,26 @@
+
+The purpose of the assignment:
+Learn to connect the Hibernate library to the project.
+
+What should be done:
+-Include the Hibernate library into your project.
+-Create a class for the Courses table.
+-Write code that displays the name and number of students for any course.
+ 
+Criteria for evaluation:
+"Pass" - information about the course is displayed.
+"Failed" - the task has not been completed.
+
+================================================================================================================================================================
+
+Цель задания:
+Научиться подключать библиотеку Hibernate к проекту.
+
+Что нужно сделать:
+-Подключите в ваш проект библиотеку Hibernate. 
+-Создайте класс для таблицы Courses.
+-Напишите код, который выводит имя и количество студентов любого курса.
+
+Критерии оценки:
+«Зачёт» — выведена информация о курсе.
+«Незачёт» — задание не выполнено.
