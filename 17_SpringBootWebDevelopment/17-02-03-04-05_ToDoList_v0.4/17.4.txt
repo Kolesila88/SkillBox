@@ -1,0 +1,24 @@
+
+The purpose of the assignment:
+Learn how to connect a templating engine to a Spring project and display information in the form of HTML.
+
+What should be done:
+Make the home page of the ToDoList app.
+Dump the to-do list from the database using the Thymeleaf template.
+
+Criteria for evaluation:
+"Pass" - after starting the application at http: // localhost: 8080, a list of cases from the database is displayed.
+"Failed" - the task has not been completed.
+
+===============================================================================================================================================================
+
+Цель задания:
+Научиться подключать шаблонизатор к проекту Spring и выводить информацию в виде HTML.
+
+Что нужно сделать:
+Сделайте главную страницу приложения ToDoList. 
+Выводите список дел из базы данных с помощью Thymeleaf-шаблона.
+
+Критерии оценки:
+«Зачёт» — после запуска приложения по адресу http://localhost:8080 выводится список дел из базы данных.
+«Незачёт» — задание не выполнено.

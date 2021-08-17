@@ -1,0 +1,24 @@
+
+The purpose of the assignment:
+Learn to hook up Hibernate for use in Spring.
+
+What should be done:
+Organize the storage of ToDoList to-do list data using a database.
+All requests must be implemented: creating a case, deleting a case, updating a case, getting a list, deleting the entire list.
+
+Criteria for evaluation
+"Test" - work with the to-do list is carried out using a database.
+"Failed" - the task has not been completed.
+
+==============================================================================================================================================================
+
+Цель задания:
+Научиться подключать Hibernate для использования в Spring.
+
+Что нужно сделать:
+Организуйте хранение данных списка дел приложения ToDoList, используя базу данных. 
+Должны быть реализованы все запросы: создание дела, удаление дела, обновление дела, получение списка, удаление всего списка.
+
+Критерии оценки:
+«Зачёт» — работа со списком дел осуществляется с помощью базы данных.
+«Незачёт» — задание не выполнено.
